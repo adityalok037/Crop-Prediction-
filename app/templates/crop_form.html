@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction</title>
+    <!-- <link rel="stylesheet" href="/app/static/style.css"> -->
+     <style>
+        body {
+    background-color: #e0f7fa;
+    font-family: Arial, sans-serif;
+}
+.container {
+    width: 50%;
+    margin: auto;
+    background-color: #a5d6a7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #2e7d32;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin-top: 10px;
+}
+input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #2e7d32;
+}
+
+     </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crop Prediction</h1>
+        <form method="post">
+            <label>Temperature:</label><input type="text" name="temperature" required><br>
+            <label>Humidity:</label><input type="text" name="humidity" required><br>
+            <label>pH:</label><input type="text" name="ph" required><br>
+            <label>Rainfall:</label><input type="text" name="rainfall" required><br>
+            <label>Nitrogen:</label><input type="text" name="nitrogen" required><br>
+            <label>Phosphorus:</label><input type="text" name="phosphorus" required><br>
+            <label>Potassium:</label><input type="text" name="potassium" required><br>
+            <button type="submit">Predict</button>
+        </form>
+        {% if crop_name %}
+            <div class="result">
+                <p>Predicted Crop: {{ crop_name }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
